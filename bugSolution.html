@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Solution: Use a more robust approach to updating the div's content.
+    // Instead of directly setting the innerHTML, create a new element
+    // and append it to the div, or use other methods to manipulate the DOM in a more structured manner. 
+    const newContent = document.createElement('p');
+    newContent.textContent = "This text replaces the original content.";
+    document.getElementById("myDiv").appendChild(newContent);
+
+    //Now adding an eventlistener after the update is applied. 
+    //This time, the eventlistener will be correctly applied, without issues.
+    newContent.addEventListener('click', function(){
+        alert('This content has been updated');
+    });
+  </script>
+</body>
+</html>
