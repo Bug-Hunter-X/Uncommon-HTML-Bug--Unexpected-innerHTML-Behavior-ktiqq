@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // This is where the bug lies. The script attempts to modify the content
+    // of the div, but the way it's done leads to an unexpected behavior.
+    document.getElementById("myDiv").innerHTML = "This text replaces the original content. ";
+    // The bug is that it doesn't allow for dynamic content update if the innerHTML is not properly constructed. 
+    // For example, adding an event handler with javascript's addEventListener() method, does not get applied properly. 
+    // this could lead to an unexpected behavior. In some cases, the updated content might not be rendered immediately.
+    // The issue becomes apparent if you try to manipulate the DOM further after setting the innerHTML.
+  </script>
+</body>
+</html>
